@@ -75,49 +75,52 @@ Users can **start as viewers** and later evolve into **creators**, making the ec
 ---
 
 ## 📊 Flow Diagram  
-
 ```mermaid
- subgraph 1. User Onboarding & Access
-        A[Landing Page / Marketing] --> B[Click "Sign Up" / Login];
-        B --> C[Complete Registration Form];
-        C --> D[Verify Email & Activate Account];
-        D --> E[Initial Setup: Set Creative Interests];
-        E --> G[Personalized Home Dashboard];
-        B --> G; %% Direct Login
+flowchart TD
+    subgraph 1. User Onboarding & Access
+        A[Landing Page / Marketing] --> B[Click Sign Up / Login]
+        B --> C[Complete Registration Form]
+        C --> D[Verify Email & Activate Account]
+        D --> E[Initial Setup: Set Creative Interests]
+        E --> G[Personalized Home Dashboard]
+        %% Direct Login
+        B --> G
     end
 
     subgraph 2. Content Discovery & Consumption
-        G --> H{Discovery Method};
-        H -- AI Recommendations --> I_1[AI Personalized Feed]; %% Feature 1
-        H -- Search Filter --> I_2[Simple Search & Category Filter];
+        G --> H{Discovery Method}
+        H -- AI Recommendations --> I_1[AI Personalized Feed]
+        H -- Search Filter --> I_2[Simple Search & Category Filter]
         
-        I_1 --> J[View Content Page];
-        I_2 --> J;
+        I_1 --> J[View Content Page]
+        I_2 --> J
         
-        J --> K{Action?};
-        K -->|Engage & Track| L[Like / Comment / Follow / Save to Collection]; %% Feature 3
-        K -->|Explore Similar| K_1[AI Similarity Search Query]; %% Feature 5
-        K -->|Exit| G;
+        J --> K{Action?}
+        K -->|Engage & Track| L[Like / Comment / Follow / Save to Collection]
+        K -->|Explore Similar| K_1[AI Similarity Search Query]
+        K -->|Exit| G
         
-        L --> J;
-        K_1 --> J; 
+        L --> J
+        K_1 --> J
     end
 
     subgraph 3. Creator Management & Publishing
-        G --> M[Creator Dashboard];
+        G --> M[Creator Dashboard]
         
-        M --> N[Upload Work: File Selection];
-        N --> O_1[Processing: AI Tagging & Categorization]; %% Feature 2
-        O_1 --> O[Add Details, Edit AI Tags, Set Price];
-        O --> P[Publish / Save as Draft];
-        P --> M;
+        M --> N[Upload Work: File Selection]
+        N --> O_1[Processing: AI Tagging & Categorization]
+        O_1 --> O[Add Details, Edit AI Tags, Set Price]
+        O --> P[Publish / Save as Draft]
+        P --> M
 
-        M --> Q[Organize Content];
-        Q --> R_1[Manage Boards/Collections];
-        R_1 --> S_1[Set Privacy / Enable Collaboration]; %% Feature 3
-        S_1 --> M;
+        M --> Q[Organize Content]
+        Q --> R_1[Manage Boards/Collections]
+        R_1 --> S_1[Set Privacy / Enable Collaboration]
+        S_1 --> M
 
-        M --> T[View Analytics];
-        T --> U[Content Insights Dashboard: Views, Saves, Trends]; %% Feature 4
-        U --> M;
+        M --> T[View Analytics]
+        T --> U[Content Insights Dashboard: Views, Saves, Trends]
+        U --> M
+    end
+
 
