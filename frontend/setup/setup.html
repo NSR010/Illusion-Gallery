@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery of Wonders - Welcome!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+   
+    <link rel="stylesheet" href="setup_style.css">
+</head>
+<body>
+    <div class="spectacle-title">
+        Just a few more steps...
+        <span>Let's personalize your experience</span>
+    </div>
+
+    <div id="setup-container" class="form-card rounded-xl p-6 sm:p-8">
+        <h1 class="text-xl font-extrabold text-center mb-2 text-white">Tell Us About Yourself</h1>
+        <p class="text-center mb-6 text-gray-400 font-medium">This will help us tailor your gallery.</p>
+        
+        <form id="setup-form" class="space-y-8">
+      
+            <div>
+                <label class="block text-md font-semibold mb-3 text-white">I am a...</label>
+                <div class="grid grid-cols-2 gap-4" id="role-selection">
+                  
+                    <label class="preference-card"><input type="radio" name="user-role" value="student" class="hidden" required><span>Student</span></label>
+                    <label class="preference-card"><input type="radio" name="user-role" value="professional" class="hidden"><span>Professional</span></label>
+                    <label class="preference-card"><input type="radio" name="user-role" value="hobbyist" class="hidden"><span>Hobbyist</span></label>
+                    <label class="preference-card"><input type="radio" name="user-role" value="educator" class="hidden"><span>Educator</span></label>
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-md font-semibold mb-3 text-white">My interests are... <span class="text-sm font-normal text-gray-400">(select up to 3)</span></label>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4" id="interest-selection">
+               
+                    <label class="preference-card multi-select"><input type="checkbox" name="user-interest" value="art" class="hidden"><span>Art</span></label>
+                    <label class="preference-card multi-select"><input type="checkbox" name="user-interest" value="photography" class="hidden"><span>Photography</span></label>
+                    <label class="preference-card multi-select"><input type="checkbox" name="user-interest" value="music" class="hidden"><span>Music</span></label>
+                    <label class="preference-card multi-select"><input type="checkbox" name="user-interest" value="writing" class="hidden"><span>Writing</span></label>
+                    <label class="preference-card multi-select"><input type="checkbox" name="user-interest" value="performance" class="hidden"><span>Performance</span></label>
+                    <label class="preference-card multi-select"><input type="checkbox" name="user-interest" value="film" class="hidden"><span>Film</span></label>
+                </div>
+            </div>
+
+            <button type="submit" class="action-button w-full text-white font-bold py-3 mt-6 rounded-lg shadow-lg">
+                Complete Setup
+            </button>
+        </form>
+         <div id="message-box" class="mt-4 p-3 rounded-lg text-white font-semibold hidden transition-all duration-300"></div>
+    </div>
+    
+    <script type="module" src="setup_script.js"></script>
+</body>
+</html>

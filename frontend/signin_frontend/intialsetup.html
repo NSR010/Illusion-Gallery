@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Initial Setup</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="spectacle-title">
+        Illusion Gallery
+        <span>Preserving Creative Works & Performances</span>
+    </div>
+
+    <div id="auth-container" class="form-card rounded-xl p-6 sm:p-8">
+        <h1 class="text-xl font-extrabold text-center mb-2 text-white">Access Portal</h1>
+        <p class="text-center mb-6 text-gray-400 font-medium">Log in or create your spectacle.</p>
+
+        <div class="flex bg-gray-800 rounded-full p-1 mb-6 toggle-switch">
+            <button id="toggle-login" class="toggle-button flex-1 py-2 rounded-full font-bold transition-all duration-300 text-sm">Log In</button>
+            <button id="toggle-signup" class="toggle-button flex-1 py-2 rounded-full font-bold transition-all duration-300 text-sm">Sign Up</button>
+        </div>
+
+        <form id="login-form" class="space-y-4">
+            <div>
+                <label for="login-email" class="block text-sm font-semibold mb-1 text-white">Email</label>
+                <input type="email" id="login-email" class="input-field w-full p-2 outline-none rounded-t-md" required>
+            </div>
+            <div>
+                <label for="login-password" class="block text-sm font-semibold mb-1 text-white">Password</label>
+                <input type="password" id="login-password" class="input-field w-full p-2 outline-none rounded-t-md" required>
+            </div>
+            <button type="submit" class="action-button w-full text-white font-bold py-3 mt-6 rounded-lg shadow-lg">
+                Log In
+            </button>
+            <p class="text-center text-xs text-gray-400 mt-4">
+                Forgot password? <a href="#" class="font-semibold" style="color: var(--color-accent);">Recover Account</a>
+            </p>
+        </form>
+
+        <form id="signup-form" class="space-y-4 hidden">
+            <div>
+                <label for="signup-username" class="block text-sm font-semibold mb-1 text-white">Username</label>
+                <input type="text" id="signup-username" class="input-field w-full p-2 outline-none rounded-t-md" required>
+            </div>
+            <div>
+                <label for="signup-email" class="block text-sm font-semibold mb-1 text-white">Email</label>
+                <input type="email" id="signup-email" class="input-field w-full p-2 outline-none rounded-t-md" required>
+            </div>
+            <div>
+                <label for="signup-password" class="block text-sm font-semibold mb-1 text-white">Password (min 6 chars)</label>
+                <input type="password" id="signup-password" class="input-field w-full p-2 outline-none rounded-t-md" required minlength="6">
+            </div>
+            <div>
+                <label for="confirm-password" class="block text-sm font-semibold mb-1 text-white">Confirm Password</label>
+                <input type="password" id="confirm-password" class="input-field w-full p-2 outline-none rounded-t-md" required minlength="6">
+            </div>
+            <button type="submit" class="action-button w-full text-white font-bold py-3 mt-6 rounded-lg shadow-lg">
+                Create Account
+            </button>
+            <p class="text-center text-xs text-gray-400 mt-4">
+                By signing up, you agree to our <a href="#" class="font-semibold" style="color: var(--color-accent);">Terms</a>.
+            </p>
+        </form>
+
+        <div id="message-box" class="mt-4 p-3 rounded-lg text-white font-semibold hidden transition-all duration-300"></div>
+
+        <div id="loading-indicator" class="hidden text-center mt-4 text-sm" style="color: var(--color-highlight);">
+            Processing request...
+        </div>
+    </div>
+
+   
+    <script type="module" src="script.js"></script>
+</body>
+</html>

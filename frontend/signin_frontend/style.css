@@ -1,0 +1,154 @@
+
+:root {
+    --color-primary: #5E35B1;
+    --color-secondary: #311B92; 
+    --color-accent: #E53935; 
+    --color-highlight: #FF9800; 
+    --color-gold: #FFD700; 
+    --color-neon-blue: #0ff; 
+    --color-dark-text: #111;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(to bottom, #0a1f3b 0%, #1b3b5f 20%, #2a4973 40%, #1b3b5f 80%, #0a1f3b 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+.spectacle-title {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    font-weight: 800;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+        0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4),
+        0 0 40px rgba(255, 182, 255, 0.3);
+    opacity: 0.92;
+    z-index: 10;
+    animation: glow 2s ease-in-out infinite alternate;
+    padding-left: 0.5em;
+}
+.spectacle-title span {
+    display: block;
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.4em;
+    letter-spacing: 0.2em;
+    text-transform: lowercase;
+    margin-top: 0.5em;
+    font-weight: 300;
+    opacity: 0.8;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 255, 255, 0.7), 0 0 40px rgba(255, 255, 255, 0.5);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+.form-card {
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
+    max-width: 400px;
+    width: 100%;
+    border: 2px solid var(--color-gold);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9), 0 0 25px var(--color-accent);
+    animation: fadeIn 0.5s ease-out;
+    z-index: 100;
+}
+
+
+.toggle-switch {
+    border: 1px solid var(--color-highlight);
+}
+
+
+.toggle-button {
+    color: var(--color-neon-blue);
+    border: 1px solid var(--color-neon-blue);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    transition: all 0.3s ease;
+    background-color: transparent;
+    padding: 10px 15px;
+}
+.toggle-button:hover:not(.toggle-active) {
+    color: white;
+    text-shadow: 0 0 5px white;
+    background-color: rgba(0, 255, 255, 0.1);
+}
+
+
+.toggle-active {
+    background-color: var(--color-neon-blue) !important;
+    color: var(--color-dark-text) !important;
+    box-shadow: 0 0 20px var(--color-neon-blue);
+    font-weight: 800;
+}
+
+.toggle-active:hover {
+    color: var(--color-dark-text) !important;
+    box-shadow: 0 0 20px var(--color-neon-blue), 0 0 40px var(--color-neon-blue), 0 0 60px var(--color-neon-blue);
+    letter-spacing: 3px;
+}
+
+
+.input-field {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-bottom: 2px solid var(--color-primary);
+    color: #fff;
+    transition: all 0.3s;
+}
+.input-field:focus {
+    border-bottom-color: var(--color-highlight);
+    box-shadow: 0 1px 0 0 var(--color-highlight);
+}
+.action-button {
+    background: linear-gradient(90deg, var(--color-accent), var(--color-highlight));
+    transition: all 0.3s;
+}
+.action-button:hover {
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.8);
+    transform: translateY(-2px);
+}
+
+label, .form-card p, .form-card a, .form-card input {
+    color: #fff;
+}
+.form-card input {
+    background-color: transparent !important;
+}
+
+@media (max-width: 768px) {
+    .spectacle-title {
+        letter-spacing: 0.3em;
+        padding-left: 0.3em;
+    }
+
+    .spectacle-title span {
+        font-size: 0.5em;
+        letter-spacing: 0.15em;
+    }
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Illusion Gallery - Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="./dashboard_style.css">
+</head>
+<body class="text-white font-inter">
+
+    <div class="flex h-screen">
+        <!-- Left Sidebar -->
+        <aside class="w-64 p-6 flex flex-col border-r">
+            <h1 class="text-2xl font-bold mb-8 spectacle-title-sidebar">Illusion Gallery</h1>
+            
+            <!-- Storage Section -->
+            <div class="mb-8">
+                <h2 class="text-lg font-semibold mb-4">Storage</h2>
+                <div class="relative w-48 h-48 mx-auto">
+                    <canvas id="storageChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Navigation Links with data-view attributes -->
+            <nav class="flex flex-col space-y-2 text-lg">
+                <a href="#" class="nav-link" data-view="Photo">
+                    <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    Photo
+                </a>
+                <a href="#" class="nav-link" data-view="Upload">
+                     <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.414a4 4 0 00-5.656-5.656l-6.415 6.415a6 6 0 108.485 8.485L17.5 10.5"></path></svg>
+                    Upload
+                </a>
+                <a href="#" class="nav-link" data-view="Collection">
+                    <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                    Collection
+                </a>
+                 <a href="#" class="nav-link" data-view="Albums">
+                    <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
+                    Albums
+                </a>
+                <a href="#" class="nav-link" data-view="Documents">
+                   <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    Documents
+                </a>
+                <a href="#" class="nav-link" data-view="Favorite">
+                     <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                    Favorite
+                </a>
+                 <a href="#" class="nav-link" data-view="Analytics">
+                    <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
+                    Analytics
+                </a>
+                <a href="#" class="nav-link" data-view="AIMagic">
+                    <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                    AI Magic
+                </a>
+            </nav>
+            
+            <!-- User Profile, Theme Toggle & Logout -->
+            <div class="mt-auto">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <img id="user-avatar" src="https://placehold.co/40x40/0ff/111?text=U" alt="User Avatar" class="w-10 h-10 rounded-full border-2 border-neon-blue">
+                        <div class="ml-3">
+                            <p id="user-display-name" class="font-semibold">Loading...</p>
+                        </div>
+                    </div>
+                    <button id="theme-toggle" class="p-2 rounded-full transition-colors duration-300">
+                        <svg id="theme-icon-sun" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M12 12a5 5 0 11-10 0 5 5 0 0110 0z"></path></svg>
+                        <svg id="theme-icon-moon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    </button>
+                </div>
+                 <button id="logout-button" class="action-button w-full text-white font-bold py-2 mt-4 rounded-lg shadow-lg">
+                    Log Out
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 p-8 overflow-y-auto">
+            <!-- Top Filter Bar (Only shown for Photo view) -->
+            <header id="photo-header" class="flex justify-between items-center mb-8">
+                <div class="filter-tabs flex space-x-2 p-1 rounded-full">
+                    <button class="filter-tab active">All</button>
+                    <button class="filter-tab">Portfolio</button>
+                    <button class="filter-tab">Performance</button>
+                    <button class="filter-tab">Music</button>
+                </div>
+            </header>
+
+            <!-- Page/View Container -->
+            <div id="view-container">
+                <!-- Photo Gallery View -->
+                <div id="Photo-view" class="view">
+                    <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        <!-- Gallery items will be injected here -->
+                    </div>
+                </div>
+
+                <!-- Upload View -->
+                <div id="Upload-view" class="view hidden max-w-3xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-6 text-center">Upload New Work</h2>
+                    <div class="upload-drop-zone p-10 text-center rounded-lg cursor-pointer">
+                        <svg class="mx-auto h-12 w-12" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true"><path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                        <p class="mt-5 text-lg">Drag & drop files here</p>
+                        <p class="mt-1 text-sm text-text-secondary">or click to browse</p>
+                        <input id="file-upload" type="file" class="hidden" multiple>
+                    </div>
+                    <button class="action-button w-full text-white font-bold py-3 mt-6 rounded-lg shadow-lg">Start Upload</button>
+                </div>
+                
+                <!-- Placeholder Views for other sections -->
+                <div id="Collection-view" class="view hidden placeholder-view"> <h2 class="text-2xl font-bold">Collection Management - Coming Soon!</h2> </div>
+                <div id="Albums-view" class="view hidden placeholder-view"> <h2 class="text-2xl font-bold">Albums - Coming Soon!</h2> </div>
+                <div id="Documents-view" class="view hidden placeholder-view"> <h2 class="text-2xl font-bold">Documents - Coming Soon!</h2> </div>
+                <div id="Favorite-view" class="view hidden placeholder-view"> <h2 class="text-2xl font-bold">Favorites - Coming Soon!</h2> </div>
+                <div id="Analytics-view" class="view hidden placeholder-view"> <h2 class="text-2xl font-bold">Analytics - Coming Soon!</h2> </div>
+                <div id="AIMagic-view" class="view hidden placeholder-view"> <h2 class="text-2xl font-bold">AI Magic - Coming Soon!</h2> </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="./dashboard_script.js"></script>
+</body>
+</html>
+

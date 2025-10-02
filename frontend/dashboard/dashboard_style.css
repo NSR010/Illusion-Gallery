@@ -1,0 +1,205 @@
+/* --- THEME VARIABLES --- */
+:root {
+    /* Base Colors (Shared) */
+    --color-primary: #5E35B1;
+    --color-secondary: #311B92;
+    --color-accent: #E53535;
+    --color-highlight: #FF9800;
+    --color-gold: #FFD700;
+    --color-neon-blue: #0ff;
+    --color-dark-text: #111;
+
+    /* Default Dark Theme */
+    --bg-primary: #0a1f3b;
+    --bg-secondary: #1e293b; 
+    --bg-tertiary: #0f172a; 
+    --border-color: #334155;
+    --text-primary: #ffffff;
+    --text-secondary: #cbd5e1;
+    --chart-border: #0a1f3b;
+}
+
+body.light-mode {
+    /* Light Theme Overrides */
+    --bg-primary: #f1f5f9; 
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #e2e8f0; 
+    --border-color: #cbd5e1; 
+    --text-primary: #0f172a; 
+    --text-secondary: #475569; 
+    --chart-border: #ffffff;
+}
+
+/* --- Base Body Styles --- */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* --- Sidebar Specific Styles --- */
+aside {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-color);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.spectacle-title-sidebar {
+    font-family: "Inter", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 800;
+    color: var(--text-primary);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+.light-mode .spectacle-title-sidebar {
+    text-shadow: none;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+    background-color: rgba(0, 255, 255, 0.1);
+    color: var(--color-neon-blue);
+}
+.light-mode .nav-link:hover {
+    background-color: rgba(94, 53, 177, 0.1); 
+    color: var(--color-primary);
+}
+
+
+.nav-link.active {
+    background-color: var(--color-neon-blue);
+    color: var(--color-dark-text);
+    box-shadow: 0 0 15px var(--color-neon-blue);
+}
+.nav-link.active svg {
+    stroke: var(--color-dark-text);
+}
+
+#user-display-name {
+    color: var(--text-primary);
+}
+
+#theme-toggle {
+    color: var(--text-secondary);
+}
+#theme-toggle:hover {
+    color: var(--color-neon-blue);
+}
+.light-mode #theme-toggle:hover {
+    color: var(--color-primary);
+}
+
+/* --- Main Content Area --- */
+main {
+     background-color: var(--bg-primary);
+}
+.filter-tabs {
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+}
+.filter-tab {
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.filter-tab:hover:not(.active) {
+    background-color: rgba(0, 255, 255, 0.1);
+    color: var(--color-neon-blue);
+}
+.light-mode .filter-tab:hover:not(.active) {
+    background-color: rgba(94, 53, 177, 0.1);
+}
+
+.filter-tab.active {
+    background-color: var(--color-neon-blue);
+    color: var(--color-dark-text);
+    box-shadow: 0 0 15px var(--color-neon-blue);
+}
+
+/* Gallery Card Styles */
+.gallery-card {
+    background-color: var(--bg-secondary);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-gold);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), 0 0 15px var(--color-gold);
+}
+.light-mode .gallery-card:hover {
+     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.gallery-card h3 {
+    color: var(--text-primary);
+}
+.gallery-card p {
+    color: var(--text-secondary);
+}
+
+/* --- NEW: Upload & Placeholder Styles --- */
+.upload-drop-zone {
+    border: 3px dashed var(--border-color);
+    background-color: var(--bg-tertiary);
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+}
+.upload-drop-zone:hover {
+    border-color: var(--color-neon-blue);
+    background-color: rgba(0, 255, 255, 0.05);
+    color: var(--color-neon-blue);
+}
+.light-mode .upload-drop-zone:hover {
+    border-color: var(--color-primary);
+    background-color: rgba(94, 53, 177, 0.05);
+    color: var(--color-primary);
+}
+
+.placeholder-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    border: 2px dashed var(--border-color);
+    border-radius: 0.75rem;
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+}
+
+/* Action Button (Logout) */
+.action-button {
+    background: linear-gradient(90deg, var(--color-accent), var(--color-highlight));
+    transition: all 0.3s;
+}
+
+.action-button:hover {
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.6);
+    transform: translateY(-2px);
+}
+

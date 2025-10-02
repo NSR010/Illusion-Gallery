@@ -1,0 +1,97 @@
+
+:root {
+    --color-primary: #5E35B1;
+    --color-secondary: #311B92;
+    --color-accent: #E53935;
+    --color-highlight: #FF9800;
+    --color-gold: #FFD700;
+    --color-neon-blue: #0ff;
+    --color-dark-text: #111;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(to bottom, #0a1f3b 0%, #1b3b5f 20%, #2a4973 40%, #1b3b5f 80%, #0a1f3b 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    margin: 0;
+}
+
+.spectacle-title {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    font-weight: 800;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
+    opacity: 0.92;
+    z-index: 10;
+    padding-left: 0.5em;
+}
+
+.spectacle-title span {
+    display: block;
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.5em;
+    letter-spacing: 0.2em;
+    text-transform: lowercase;
+    margin-top: 0.5em;
+    font-weight: 300;
+    opacity: 0.8;
+}
+
+.form-card {
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
+    max-width: 500px;
+    width: 100%;
+    border: 2px solid var(--color-gold);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9), 0 0 25px var(--color-accent);
+    z-index: 100;
+}
+
+.action-button {
+    background: linear-gradient(90deg, var(--color-accent), var(--color-highlight));
+    transition: all 0.3s;
+}
+
+.action-button:hover {
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.8);
+    transform: translateY(-2px);
+}
+
+.preference-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--color-primary);
+    border-radius: 0.5rem;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+}
+
+.preference-card:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: var(--color-highlight);
+}
+
+label.preference-card:has(input:checked) {
+    border-color: var(--color-neon-blue) !important;
+    box-shadow: 0 0 10px var(--color-neon-blue);
+    color: var(--color-neon-blue);
+}
+
